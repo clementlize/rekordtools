@@ -1,12 +1,12 @@
-import { GlobalStyle } from './styles/GlobalStyle'
-
-import { Greetings } from './components/Greetings'
+import { Box } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
 
 export function App() {
   return (
-    <>
-      <GlobalStyle />
-      <Greetings />
-    </>
+    <ThemeProvider theme={}>
+      <Box>
+        YO
+      </Box>
+    </ThemeProvider>
   )
 }
