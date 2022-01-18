@@ -1,8 +1,8 @@
 {
-  "name": "electron-react-typescript",
-  "author": "Diego Fernandes <diego.schell.f@gmail.com>",
-  "version": "2.0.0",
-  "description": "An Electron boilerplate including TypeScript, React, Jest and ESLint.",
+  "name": "rekordtools",
+  "author": "Clément Lizé <hello@clementlize.com>",
+  "version": "1.0.0",
+  "description": "A set of tools to improve Rekordbox",
   "main": "./.webpack/main/index.js",
   "scripts": {
     "start": "electron-forge start",
