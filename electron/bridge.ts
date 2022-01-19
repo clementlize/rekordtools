@@ -14,6 +14,14 @@ export const api = {
         ipcRenderer.send('getRekordboxSettingsPath');
     },
 
+    //////////////////////////
+    //////     Test     //////
+    //////////////////////////
+
+    readDb: () => {
+        ipcRenderer.send('readDb');
+    },
+
     ///////////////////////////
     //////   Listeners   //////
     ///////////////////////////
