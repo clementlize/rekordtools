@@ -1,6 +1,8 @@
 import ElectronStore from 'electron-store';
 
 export interface SettingsStoreSchema {
+
+    darkMode: boolean;
     mainDbPath: string;
 }
 

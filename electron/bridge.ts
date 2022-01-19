@@ -2,6 +2,14 @@ import { contextBridge, ipcRenderer } from 'electron';
 
 export const api = {
 
+    /////////////////////////////
+    ////// Common settings //////
+    /////////////////////////////
+
+    setDarkMode: (on: boolean) => {
+        ipcRenderer.send('setDarkMode', on);
+    },
+
     ///////////////////////////
     ////// DATABASE PATH //////
     ///////////////////////////
