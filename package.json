@@ -117,7 +117,9 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "Electron Starter"
+            "name": "rekordtools",
+            "description": "A set of tools for Rekordbox",
+            "author": "Clément Lizé"
           }
         },
         {
