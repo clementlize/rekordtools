@@ -1,10 +1,13 @@
-import { app, BrowserWindow, ipcMain, session } from 'electron';
+import { app, BrowserWindow, session } from 'electron';
 import { reactDevToolsPath, reduxDevToolsPath } from './config/config';
+import { registerListeners } from './listeners';
 
 let mainWindow: BrowserWindow | null
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
+
+const isDev = require('electron-is-dev');
 
 // const assetsPath =
 //   process.env.NODE_ENV === 'production'
@@ -31,23 +34,18 @@ function createWindow() {
     });
 }
 
-async function registerListeners() {
-    /**
-     * This comes from bridge integration, check bridge.ts
-     */
-    ipcMain.on('message', (_, message) => {
-        console.log(message)
-    });
-}
-
 app.on('ready', createWindow)
     .whenReady()
     .then(registerListeners)
     .then(async () => {
-        await session.defaultSession.loadExtension(reactDevToolsPath, { allowFileAccess: true });
+        if (isDev) {
+            await session.defaultSession.loadExtension(reactDevToolsPath, { allowFileAccess: true });
+        }
     })
     .then(async () => {
-        await session.defaultSession.loadExtension(reduxDevToolsPath, { allowFileAccess: true });
+        if (isDev) {
+            await session.defaultSession.loadExtension(reduxDevToolsPath, { allowFileAccess: true });
+        }
     })
     .catch(e => console.error(e));
 
