@@ -2,6 +2,8 @@ import { app, BrowserWindow, session } from 'electron';
 import { reactDevToolsPath, reduxDevToolsPath } from './config/config';
 import { registerListeners } from './listeners';
 
+require('dotenv').config();
+
 let mainWindow: BrowserWindow | null
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string
