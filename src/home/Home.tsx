@@ -52,6 +52,13 @@ const Home: React.FC<HomeProps> = (props) => {
                     Change
                 </Button>
 
+                <Button
+                    onClick={() => {
+                        window.Main.readDb();
+                    }}
+                >
+                    Read DB
+                </Button>
 
             </Box>
         </Box>

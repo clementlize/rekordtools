@@ -1,6 +1,8 @@
 import { app, BrowserWindow, session } from 'electron';
-import { reactDevToolsPath, reduxDevToolsPath } from './config/config';
+import { reactDevToolsPath } from './config/config';
 import { registerListeners } from './listeners';
+
+require('dotenv').config();
 
 let mainWindow: BrowserWindow | null
 
@@ -40,11 +42,6 @@ app.on('ready', createWindow)
     .then(async () => {
         if (isDev) {
             await session.defaultSession.loadExtension(reactDevToolsPath, { allowFileAccess: true });
-        }
-    })
-    .then(async () => {
-        if (isDev) {
-            await session.defaultSession.loadExtension(reduxDevToolsPath, { allowFileAccess: true });
         }
     })
     .catch(e => console.error(e));

@@ -1,4 +1,5 @@
 import { ipcMain } from "electron";
+import { readDb } from "./database/database";
 import { getRekordboxSettingsPath, openRekordboxPathDialog } from "./database/rekordboxSettingsPath";
 
 export async function registerListeners() {
@@ -13,5 +14,14 @@ export async function registerListeners() {
 
     ipcMain.on('getRekordboxSettingsPath', (event) => {
         getRekordboxSettingsPath(event);
-    })
+    });
+
+    //////////////////////////
+    //////     Test     //////
+    //////////////////////////
+
+    ipcMain.on('readDb', (_) => {
+
+        readDb();
+    });
 }
