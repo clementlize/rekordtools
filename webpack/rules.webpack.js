@@ -5,16 +5,28 @@ module.exports = [
         test: /native_modules\/.+\.node$/,
         use: 'node-loader',
     },
-    {
+    /*{
         test: /\.(m?js|node)$/,
-        parser: { amd: false },
+        parser: { amd: true },
         use: {
             loader: '@vercel/webpack-asset-relocator-loader',
             options: {
                 outputAssetBase: 'native_modules',
+                emitDirnameAll: true,
             },
         }
-    },
+    },*/
+    /*{
+        test: /\.(m?js|node)$/,
+        parser: { amd: true },
+        use: {
+            loader: '@zeit/webpack-asset-relocator-loader',
+            options: {
+                outputAssetBase: 'native_modules',
+                emitDirnameAll: true,
+            },
+        },
+    },*/
     /*{
         test: /\.tsx?$/,
         exclude: /(node_modules|\.webpack)/,
