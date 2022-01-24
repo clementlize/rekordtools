@@ -15,7 +15,10 @@
   "keywords": [],
   "license": "MIT",
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
     "@journeyapps/sqlcipher": "^5.3.1",
+    "@mui/material": "^5.3.1",
     "@vercel/webpack-asset-relocator-loader": "^1.7.0",
     "aws-sdk": "^2.1062.0",
     "jsonfile": "^6.1.0",
@@ -81,6 +84,9 @@
         "extraResource": [
           "assets"
         ]
+      },
+      "electronRebuildConfig": {
+        "onlyModules": []
       },
       "plugins": [
         [
