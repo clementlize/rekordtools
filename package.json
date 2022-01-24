@@ -1,7 +1,7 @@
 {
   "name": "rekordtools",
   "author": "Clément Lizé <hello@clementlize.com>",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "An Electron boilerplate including TypeScript, React, Jest and ESLint.",
   "main": "./.webpack/main/index.js",
   "scripts": {

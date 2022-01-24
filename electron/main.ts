@@ -44,6 +44,7 @@ async function registerListeners () {
     //console.log("DB PATH: " + process.env.ELECTRON_WEBPACK_APP_DBPATH);
     //const db: Database = new sqlite3.Database(process.env.ELECTRON_WEBPACK_APP_DBPATH, () => {
     //const db: Database = new sqlite3.Database("/mnt/data/dev/perso/files/master.db", () => {
+    const db: Database = new sqlite3.Database("/mnt/datadev/perso/files/master.db", () => {
 
       db.serialize(() => {
 
