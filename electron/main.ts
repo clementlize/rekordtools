@@ -1,7 +1,8 @@
 import { Database } from '@journeyapps/sqlcipher';
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow, ipcMain, session } from 'electron';
+import { reactDevToolsPath } from './config/config';
 const sqlite3 = require('@journeyapps/sqlcipher').verbose();
-
+const isDev = require('electron-is-dev');
 
 let mainWindow: BrowserWindow | null
 
@@ -80,6 +81,11 @@ async function registerListeners() {
 app.on('ready', createWindow)
     .whenReady()
     .then(registerListeners)
+    .then(async () => {
+        if (isDev) {
+            await session.defaultSession.loadExtension(reactDevToolsPath, { allowFileAccess: true });
+        }
+    })
     .catch(e => console.error(e))
 
 app.on('window-all-closed', () => {
