@@ -1,16 +1,21 @@
 import { Box, Button, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
 interface HomeProps { }
 
 const Home: React.FC<HomeProps> = (props) => {
 
-    /*const [rekordboxSettingsPath, setRekordboxSettingsPath] = useState<string>();
+    const [rekordboxSettingsPath, setRekordboxSettingsPath] = useState<string>();
 
     window.Main.on("rekordboxSettingsPath-response", (data: string) => {
 
         setRekordboxSettingsPath(data);
-    })*/
+    });
+
+    window.Main.on("readDb-response", (data: string) => {
+
+        console.log(data);
+    });
 
     return (
         <Box
@@ -32,13 +37,7 @@ const Home: React.FC<HomeProps> = (props) => {
                     Welcome to RekordTools
                 </Typography>
 
-                <Button
-                    onClick={() => window.Main.sendMessage("Test")}
-                >
-                    Test database
-                </Button>
-
-                {/*<Typography>
+                <Typography>
                     {`path: ${rekordboxSettingsPath}`}
                 </Typography>
 
@@ -56,8 +55,15 @@ const Home: React.FC<HomeProps> = (props) => {
                     }}
                 >
                     Change
-                </Button>*/}
+                </Button>
 
+                <Button
+                    onClick={() => {
+                        window.Main.readDb();
+                    }}
+                >
+                    Read DB
+                </Button>
 
             </Box>
         </Box>

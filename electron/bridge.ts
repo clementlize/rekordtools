@@ -1,23 +1,36 @@
-import { contextBridge, ipcRenderer } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron';
 
 export const api = {
-    /**
-     * Here you can expose functions to the renderer process
-     * so they can interact with the main (electron) side
-     * without security problems.
-     *
-     * The function below can accessed using `window.Main.sendMessage`
-     */
 
-    sendMessage: (message: string) => {
-        ipcRenderer.send('message', message)
+    ///////////////////////////
+    ////// DATABASE PATH //////
+    ///////////////////////////
+
+    openRekordboxSettingsPathDialog: () => {
+        ipcRenderer.send('openRekordboxSettingsPathDialog');
     },
+
+    getRekordboxSettingsPath: () => {
+        ipcRenderer.send('getRekordboxSettingsPath');
+    },
+
+    //////////////////////////
+    //////     Test     //////
+    //////////////////////////
+
+    readDb: () => {
+        ipcRenderer.send('readDb');
+    },
+
+    ///////////////////////////
+    //////   Listeners   //////
+    ///////////////////////////
 
     /**
      * Provide an easier way to listen to events
      */
     on: (channel: string, callback: Function) => {
-        ipcRenderer.on(channel, (_, data) => callback(data))
+        ipcRenderer.on(channel, (_, data) => callback(data));
     }
 }
 
