@@ -4424,6 +4424,11 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
+egoroof-blowfish@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/egoroof-blowfish/-/egoroof-blowfish-2.2.2.tgz#d9ad386a8d2f8ddb55f2f7ff00341fc7565f9222"
+  integrity sha512-J2YRdTmgeebSiLB/WN2p5shat6eCnc7L/fM5SX9E8Yi0HGBWHcE6lQnHVCoXmkUflIwFU2j1/XcERYBdilMECA==
+
 electron-installer-common@^0.10.2:
   version "0.10.3"
   resolved "https://registry.yarnpkg.com/electron-installer-common/-/electron-installer-common-0.10.3.tgz#40f9db644ca60eb28673d545b67ee0113aef4444"

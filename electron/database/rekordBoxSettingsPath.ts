@@ -38,7 +38,7 @@ const updateRekordboxSettingsPath = (event: Electron.IpcMainEvent, path: string)
  * Get the database path stored
  * @param event 
  */
-export const getRekordboxSettingsPath = (event: Electron.IpcMainEvent) => {
+export const getRekordboxSettingsPath = (): string => {
 
-    event.reply("rekordboxSettingsPath-response", (settingsStore.get("rekordboxSettingsPath")));
+    return settingsStore.get("rekordboxSettingsPath");
 }

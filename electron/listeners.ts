@@ -13,7 +13,10 @@ export async function registerListeners() {
     });
 
     ipcMain.on('getRekordboxSettingsPath', (event) => {
-        getRekordboxSettingsPath(event);
+
+        event.reply("rekordboxSettingsPath-response",
+            getRekordboxSettingsPath()
+        );
     });
 
     //////////////////////////
