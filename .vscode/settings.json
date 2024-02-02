@@ -6,6 +6,6 @@
     "editor.insertSpaces": true,
     "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+        "source.organizeImports": "explicit"
     }
 }
