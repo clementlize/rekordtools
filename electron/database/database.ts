@@ -12,7 +12,6 @@ const sqlite3 = require("@journeyapps/sqlcipher").verbose();
  * @returns 
  */
 const getRekordBoxSettings = (): any => {
-
     return JSON.parse(fs.readFileSync(getRekordboxSettingsPath(), "utf-8")).options;
 }
 

@@ -1,5 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface HomeProps { }
 
@@ -8,13 +8,18 @@ const Home: React.FC<HomeProps> = (props) => {
     const [rekordboxSettingsPath, setRekordboxSettingsPath] = useState<string>();
 
     window.Main.on("rekordboxSettingsPath-response", (data: string) => {
-
         setRekordboxSettingsPath(data);
     });
 
     window.Main.on("readDb-response", (data: string) => {
-
         console.log(data);
+    });
+
+    // Wait 1s and refresh the options path, in case it's been set by the back-end automatically
+    useEffect(() => {
+        setTimeout(() => {
+            window.Main.getRekordboxSettingsPath();
+        }, 1000);
     });
 
     return (
