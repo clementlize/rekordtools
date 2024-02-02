@@ -22,6 +22,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "paths": {
+        "react": ["./node_modules/@types/react"]
+    }
   }
 }

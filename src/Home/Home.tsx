@@ -15,11 +15,11 @@ const Home: React.FC<HomeProps> = (props) => {
         console.log(data);
     });
 
-    // Wait 1s and refresh the options path, in case it's been set by the back-end automatically
+    // Wait 10ms and refresh the options path, in case it's been set by the back-end automatically
     useEffect(() => {
         setTimeout(() => {
             window.Main.getRekordboxSettingsPath();
-        }, 1000);
+        }, 10);
     });
 
     return (
@@ -30,13 +30,11 @@ const Home: React.FC<HomeProps> = (props) => {
             height={1}
             width={1}
         >
-
             <Box
                 display="flex"
                 flexDirection="column"
                 alignItems="center"
             >
-
 
                 <Typography>
                     Welcome to RekordTools
@@ -68,6 +66,14 @@ const Home: React.FC<HomeProps> = (props) => {
                     }}
                 >
                     Read DB
+                </Button>
+
+                <Button
+                    onClick={() => {
+                        window.Main.clearStore();
+                    }}
+                >
+                    Clear store
                 </Button>
 
             </Box>

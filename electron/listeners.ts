@@ -1,6 +1,7 @@
 import { ipcMain } from "electron";
 import { readDb } from "./database/database";
 import { getRekordboxSettingsPath, openRekordboxPathDialog } from "./database/rekordBoxSettingsPath";
+import { clearStore } from "./store/store";
 
 export async function registerListeners() {
 
@@ -24,7 +25,10 @@ export async function registerListeners() {
     //////////////////////////
 
     ipcMain.on('readDb', (event) => {
-
         readDb(event);
+    });
+
+    ipcMain.on("clearStore", () => {
+        clearStore();
     });
 }

@@ -21,6 +21,9 @@ export const api = {
     readDb: () => {
         ipcRenderer.send('readDb');
     },
+    clearStore: () => {
+        ipcRenderer.send('clearStore');
+    },
 
     ///////////////////////////
     //////   Listeners   //////

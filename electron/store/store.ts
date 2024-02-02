@@ -5,3 +5,7 @@ export interface SettingsStoreSchema {
 }
 
 export const settingsStore = new ElectronStore<SettingsStoreSchema>();
+
+export const clearStore = () => {
+    settingsStore.clear();
+}
