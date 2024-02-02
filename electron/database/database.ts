@@ -11,7 +11,7 @@ const sqlite3 = require("@journeyapps/sqlcipher").verbose();
  * Get the JSON file containing useful information and paths
  * @returns 
  */
-const getRekordBoxSettings = (): any => {
+const getRekordBoxSettings = (): (string[])[] => {
     return JSON.parse(fs.readFileSync(getRekordboxSettingsPath(), "utf-8")).options;
 }
 
@@ -43,11 +43,15 @@ const getDbKey = (): string | undefined => {
         return bf.decode(_passwordEncoded, Blowfish.TYPE.STRING);
     };
 
-    const encodedKey = getRekordBoxSettings()[1][1];
+    const encodedKey = getRekordBoxSettings().find(x => x[0] === "dp")?.[1];
+    if (!encodedKey) {
+        throw new Error("Could not find encoded key in config file");
+    }
+    console.log(`Encoded key: ${encodedKey}`);  // TODO: remove
+
     const key = Buffer.from(encodedKey, "base64");
 
     // TODO: what happens on OSX?
-    const asarPath = path.resolve(getRekordBoxSettings()[5][1], "../../rekordboxAgent-win32-x64/resources/app.asar");
     const passwordString = getEncryptedPassword(asarPath);
 
     if (!passwordString) {
